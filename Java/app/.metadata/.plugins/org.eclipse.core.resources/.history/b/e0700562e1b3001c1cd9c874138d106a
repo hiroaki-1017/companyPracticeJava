@@ -1,0 +1,28 @@
+package test;
+
+import java.util.Scanner;
+
+public class Example005 {
+
+	public static void main(String[] args) {
+		// TODO 自動生成されたメソッド・スタブ
+		int num = (int)(Math.random() * 10 + 1);
+		int human = -1;
+
+		Scanner scan = new Scanner(System.in);
+
+		while(human != num) {
+			System.out.println("0から9までの数値を入力してください。");
+			human = scan.nextInt();
+			for(int i = 1; i <= 3; i++) {
+				if(i >= 3) {
+					System.out.println("あなたの負け");
+				}
+			}
+		}
+		System.out.println("当たり！");
+        scan.close();
+
+	}
+
+}
