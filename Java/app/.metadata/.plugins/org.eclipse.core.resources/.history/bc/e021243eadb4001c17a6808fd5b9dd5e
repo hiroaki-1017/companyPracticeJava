@@ -1,0 +1,22 @@
+package test04;
+
+public class Test {
+
+	    void メソッド1() {
+
+	        int data = 10;
+	        data = メソッド2(data);
+	        System.out.println(data);
+
+	    }
+
+	    int メソッド2(int data) {
+
+	        System.out.println(data);
+	        data ++; // 「data」をインクリメントする(+1)
+	        return data;
+
+	    }
+
+	}
+}

@@ -1,0 +1,19 @@
+package test;
+
+public class Example007 {
+
+	public static void main(String[] args) {
+		// TODO 自動生成されたメソッド・スタブ
+		int weight;
+	    int height;
+	    int bmi;
+	    int tekiseiWeight;
+	    boolean bool = true;
+	    
+	    void showBmi() {
+	    	bmi = weight/(height * height);
+	    	tekiseiWeight = (height * height) * 22
+	    }
+	}
+
+}

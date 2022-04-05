@@ -1,0 +1,19 @@
+package test02;
+
+public class Example007 {
+
+		double weight;
+	    double height;
+	    double bmi;
+	    double tekiseiWeight;
+	    boolean bool = true;
+
+	    void showBmi() {
+	    	height = height/100;
+	    	bmi = weight / (height * height);
+	    	System.out.println(bmi);
+	    	tekiseiWeight = (height * height) * 22;
+	    	System.out.println(tekiseiWeight);
+	    }
+
+}

@@ -1,0 +1,28 @@
+package test03;
+
+public class MyCalc {
+	int num1;
+	int num2;
+	int result;
+	String operator;
+
+	MyCalc() {
+
+	}
+
+	MyCalc(int num1, int num2, int result, String operator) {
+		void showResult() {
+			if(operator.equals("+")) {
+				result = num1 + num2;
+			} else if(operator.equals("-")) {
+
+			} else if(operator.equals("*")) {
+
+			} else if(operator.equals("/")) {
+
+			} else {
+
+			}
+		}
+	}
+}
