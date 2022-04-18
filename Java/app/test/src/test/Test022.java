@@ -43,8 +43,7 @@ public class Test022 {
 
 	void makeShape() {
 		for(int i = 0,  a = num - 1; i < num2; i++, a--) {
-			for (int j = 0;  j <= Math.abs(a); j++) {
-
+			for (int j = 0;  j <= num - Math.abs(a); j++) {
                 str[i][j] = "〇"; //全角スペースを代入
 
             }

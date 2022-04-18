@@ -1,2 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<typeInfoHistroy/>
+<typeInfoHistroy>
+    <typeInfo handle="=test2/src&lt;superClass{Creature.java[Creature" modifiers="1" timestamp="1649213876391"/>
+    <typeInfo handle="=test/C:\/java\/11\/lib\/jrt-fs.jar`java.base=/module=/true=/=/javadoc_location=/https:\/\/docs.oracle.com\/javase\/jp\/11\/docs\/api\/=/&lt;java.lang(Object.class[Object" modifiers="33" timestamp="1644343231000"/>
+    <typeInfo handle="=test/src&lt;supertest{Sports.java[Sports" modifiers="1" timestamp="1649220263290"/>
+    <typeInfo handle="=test/src&lt;supertest{Athletics.java[Athletics" modifiers="1" timestamp="1649219994520"/>
+    <typeInfo handle="=test2/src&lt;collection{GetInfo.java[GetInfo" modifiers="513" timestamp="1649309587690"/>
+    <typeInfo handle="=test2/src&lt;collection{Grades.java[Grades" modifiers="513" timestamp="1649307759760"/>
+</typeInfoHistroy>
