@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+  <table class="table-auto mx-auto">
+  		<tr class="py-2">
+  				<th class="px-3 text-center font-bold">社員コード</th>
+  				<th class="px-3 text-center font-bold">社員名</th>
+  				<th class="px-3 text-center font-bold">ログインフラグ</th>
+  				<th class="px-3 text-center font-bold">メールアドレス</th>
+  				<th class="px-3 text-center font-bold">権限</th>
+  				<th class="px-3 text-center font-bold">削除フラグ</th>
+  				<th class="px-3 text-center font-bold">編集</th>
+  		</tr>
+  		<th:block th:each="map : ${sd.list}">
+  			<tr class="py-2">
+  				<td class="mx-2" th:text="${map.shain_code}"></td>
+  				<td class="mx-2" th:text="${map.shain_name}"></td>
+  				<td class="mx-2" th:text="${map.login_flg}"></td>
+  				<td class="mx-2" th:text="${map.mail_address}"></td>
+  				<td class="mx-2" th:text="${map.kengen_name}"></td>
+  				<td class="mx-2" th:text="${map.delete_flg}"></td>
+    			<td>
+    				<form action="shainedit" method="post">
+    					<input type="hidden" name="shain_code" th:value="${map.shain_code}">
+    					<button type="submit">編集</button>
+    				</form>
+    			</td>
+  		　　</tr>
+  		</th:block>
+  </table>
+</body>
+</html>

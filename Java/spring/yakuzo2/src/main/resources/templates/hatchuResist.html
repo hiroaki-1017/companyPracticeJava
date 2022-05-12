@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>薬品在庫管理システム</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/modaal.css">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"></script>
+<script src="js/jquery.twbsPagination.min.js"></script>
+<script src="js/modaal.js"></script>
+<script src="js/hatchu.js"></script>
+</head>
+<body>
+	<div th:replace="header"></div>
+	<h3 class="text-3xl font-bold text-center my-5" th:text="${hd.title}"></h3>
+	<div class="w-10/12 mx-auto p-3 bg-blue-100">
+		<form th:action="${ hd.action}" method="post">
+			<table class="text-xl mx-fixed mx-auto">
+				<tr class="h-10">
+					<th class="text-left w-2/12">発注連番</th>
+					<td class="text-left w-3/12"><input type="text"
+						name="hatchu_seq" th:value="${hd.hatchu_seq}" required></td>
+					<td class="w-2/12"></td>
+					<th class="text-left w-2/12">入荷数</th>
+					<td class="text-left w-3/12"><input type="text"
+						name="nyuka_su" th:value="${hd.nyuka_su}" required></td>
+				</tr>
+				<tr class="h-10">
+					<th class="text-left">店舗</th>
+					<td class="text-left"><th:block
+							th:if="${session.login_kengen_code} == '002'">
+							<input type="hidden" name="tenpo_code"
+								th:value="${session.login_tenpo_code}">
+							<span th:text="${session.login_tenpo_name}"></span>
+						</th:block> <th:block th:if="${session.login_kengen_code} != '002'">
+							<select name="tenpo_code">
+								<th:block th:each="map:${hd.tenpo_list}">
+									<option th:value="${map.torihikisaki_code}"
+										th:selected="${map.torihikisaki_code} == ${hd.tenpo_code}"
+										th:text="${map.torihikisaki_name}"></option>
+								</th:block>
+							</select>
+						</th:block>
+					<td></td>
+					<th class="text-left">発注区分</th>
+					<td class="text-left"><select name="hatchu_kbn">
+							<option value="1" th:selected="${hd.hatchu_kbn} == '1'">メディコード</option>
+							<option value="2" th:selected="${hd.hatchu_kbn} == '2'">その他</option>
+							<option value="3" th:selected="${hd.hatchu_kbn} == '3'">EPI</option>
+					</select></td>
+				</tr>
+				<tr class="h-10">
+					<th class="text-left">取引先</th>
+					<td><input type="hidden" name="torihikisaki_code"
+						id="torihikisaki_code" th:value="${hd.torihikisaki_code}">
+						<input type="text" name="torihikisaki_name" id="torihikisaki_name"
+						th:value="${hd.torihikisaki_name}" readonly required></td>
+					<td class="text-left"><a
+						class="text-blue-500 hover:text-blue-700 font-bold underline modal1"
+						href="torihikisakisansho">参照</a></td>
+					<th class="text-left">発注日</th>
+					<td class="text-left"><input type="date" name="hatchu_date"
+						th:value="${hd.hatchu_date}" required>
+				</tr>
+				<tr class="h-10">
+					<th class="text-left">薬品</th>
+					<td class="text-left"><input type="text" name="hanbai_name"
+						id="hanbai_name" th:value="${hd.hanbai_name}"> <input
+						type="hidden" name="yj_code" id="yj_code" th:value="${hd.yj_code}">
+						<input type="hidden" name="yakuhin_kbn" id="yakuhin_kbn"
+						th:value="${hd.yakuhin_kbn}"></td>
+					<td class="text-left"><a
+						class="text-blue-500 hover:text-blue-700 font-bold underline modal2"
+						href="yakuhinsansho">参照</a></td>
+					<th class="text-left">処理区分</th>
+					<td class="text-left"><select name="shori_kbn">
+							<option value="1" th:selected="${hd.shori_kbn} == '1'">未納品</option>
+							<option value="2" th:selected="${hd.shori_kbn} == '2'">納品中</option>
+							<option value="3" th:selected="${hd.shori_kbn} == '3'">納品済</option>
+					</select>
+				</tr>
+				<tr class="h-10">
+					<th class="text-left">JANコード</th>
+					<td class="text-left"><input type="text" name="jan_code"
+						id="jan_code" th:value="${hd.jan_code}" readonly></td>
+					<td></td>
+					<th class="text-left">照合フラグ</th>
+					<td class="text-left"><select name="shogo_flg">
+							<option value="0" th:selected="${hd.shogo_flg} == '0'">未照合</option>
+							<option value="1" th:selected="${hd.shogo_flg} == '1'">照合済</option>
+					</select></td>
+				</tr>
+				<tr class="h-10">
+					<th class="text-left">発注数</th>
+					<td class="text-left"><input type="text" name="hatchu_su"
+						th:value="${hd.hatchu_su}"></td>
+					<td></td>
+					<th class="text-left">備考</th>
+					<td><input type="text" name="biko" th:value="${hd.biko}">
+					<td>
+				</tr>
+				<tr class="h-10">
+					<th class="text-left">数量区分</th>
+					<td class="text-left"><select name="suryo_kbn">
+							<option value="1" th:selected="${hd.suryo_kbn} == '1'">箱</option>
+							<option value="2" th:selected="${hd.suryo_kbn} == '2'">バラ</option>
+					</select></td>
+					<th></th>
+					<td colspan="2" class="text-center">
+						<button
+							class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+							type="submit">登録</button> &nbsp;&nbsp;
+						<button
+							class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full"
+							type="button" onclick="cancel()">キャンセル</button>
+				</tr>
+			</table>
+		</form>
+		<span th:text="${hd.msg}"></span>
+	</div>
+	<div id="modal"></div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+	rel="stylesheet">
+</head>
+<body>
+	<header class="bg-gradient-to-t from-black-700 to-blue-300 text-black">
+		<h2 class="text-4xl text-bold text-center py-2">薬品在庫管理システム</h2>
+		<div class="flex text-center justify-end">
+			<div class="flex-initial w-16">ログイン者</div>
+			<div class="flex-initial w-16" th:text="${session.login_shain_name}"></div>
+			<div class="flex-initial w-16">権限</div>
+			<div class="flex-initial w-16" th:text="${session.login_kengen_code}"></div>
+			<div class="flex-initial w-16">店舗</div>
+			<div class="flex-initial w-16" th:text="${session.login_tenpo_name}"></div>
+			<div class="flex-initial w-16">
+				<a href="/menu">メニューへ戻る</a>
+			</div>
+		</div>
+	</header>
+</body>
+</html>
