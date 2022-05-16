@@ -51,5 +51,15 @@ public class HatchuData {
 	//参照機能用
 	private String torihikisaki_kbn;
 	private List<Map<String,Object>> torihikisaki_list;
+	private List<Map<String,Object>> yakuhin_list;
 
+	//必須チェック
+	private String subtitle = "";
+	private String button_name = "";
+
+	//registキャンセル
+	private String cancel_action = "";
+
+	//登録完了テキスト
+	private String txtComplete = "";
 }
